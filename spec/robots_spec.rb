@@ -14,21 +14,6 @@ describe 'robots' do
     end
   end
 
-  describe "#placed?" do
-    context "on the table" do
-      it "returns true" do
-        robot.place(0,0,'NORTH')
-        robot.placed?.should be_true
-      end
-    end
-
-    context "off the table" do
-      it "returns false" do
-        robot.placed?.should be_false
-      end
-    end
-  end
-
   describe '#place' do
     context "on the table" do
 
@@ -158,6 +143,81 @@ describe 'robots' do
         robot.x.should be_nil
         robot.y.should be_nil
         robot.direction.should eq "NORTH"
+      end
+    end
+  end
+
+  describe "#left" do
+    it "should set the position to WEST" do
+      robot.place(0,0,'NORTH')
+      robot.left
+      robot.direction.should eq "WEST"
+    end
+
+    it "should set the position to SOUTH" do
+      robot.place(0,0,'WEST')
+      robot.left
+      robot.direction.should eq "SOUTH"
+    end
+
+    it "should set the position to EAST" do
+      robot.place(0,0,'SOUTH')
+      robot.left
+      robot.direction.should eq "EAST"
+    end
+
+    it "should set the position to NORTH" do
+      robot.place(0,0,'EAST')
+      robot.left
+      robot.direction.should eq "NORTH"
+    end
+  end
+
+  describe "#right" do
+    it "should set the position to EAST" do
+      robot.place(0,0,'NORTH')
+      robot.right
+      robot.direction.should eq "EAST"
+    end
+
+    it "should set the position to SOUTH" do
+      robot.place(0,0,'EAST')
+      robot.right
+      robot.direction.should eq "SOUTH"
+    end
+
+    it "should set the position to WEST" do
+      robot.place(0,0,'SOUTH')
+      robot.right
+      robot.direction.should eq "WEST"
+    end
+
+    it "should set the position to NORTH" do
+      robot.place(0,0,'WEST')
+      robot.right
+      robot.direction.should eq "NORTH"
+    end
+  end
+
+  describe "#report" do
+    it "should puts x,y,position" do
+      robot.place(0,0,'NORTH')
+      robot.should_receive(:puts).with("0,0,NORTH")
+      robot.report
+    end
+  end
+
+  describe "#placed?" do
+    context "on the table" do
+      it "returns true" do
+        robot.place(0,0,'NORTH')
+        robot.placed?.should be_true
+      end
+    end
+
+    context "off the table" do
+      it "returns false" do
+        robot.placed?.should be_false
       end
     end
   end

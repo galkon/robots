@@ -33,6 +33,36 @@ class Robot
     end
   end
 
+  def left
+    case direction
+    when "NORTH"
+      @direction = "WEST"
+    when "EAST"
+      @direction = "NORTH"
+    when "SOUTH"
+      @direction = "EAST"
+    when "WEST"
+      @direction = "SOUTH"
+    end
+  end
+
+  def right
+    case direction
+    when "NORTH"
+      @direction = "EAST"
+    when "EAST"
+      @direction = "SOUTH"
+    when "SOUTH"
+      @direction = "WEST"
+    when "WEST"
+      @direction = "NORTH"
+    end
+  end
+
+  def report
+    puts "#{@x},#{@y},#{@direction}"
+  end
+
   def placed?
     @x and @y
   end
