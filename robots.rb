@@ -5,10 +5,6 @@ class Robot
     ['NORTH', 'EAST', 'SOUTH', 'WEST']
   end
 
-  def initialize
-    @direction = "NORTH"
-  end
-
   def place(x, y, direction)
     @x = x if x >= 0 and x <= 4
     @y = y if y >= 0 and y <= 4
@@ -34,6 +30,8 @@ class Robot
   end
 
   def left
+    return if not placed?
+
     case direction
     when "NORTH"
       @direction = "WEST"
@@ -47,6 +45,8 @@ class Robot
   end
 
   def right
+    return if not placed?
+
     case direction
     when "NORTH"
       @direction = "EAST"
@@ -60,7 +60,7 @@ class Robot
   end
 
   def report
-    puts "#{@x},#{@y},#{@direction}"
+    puts "#{@x},#{@y},#{@direction}" unless not placed?
   end
 
   def placed?

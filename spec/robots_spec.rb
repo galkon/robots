@@ -4,10 +4,6 @@ describe 'robots' do
 
   let(:robot) { Robot.new }
 
-  it 'should set the robot to start NORTH' do
-    robot.direction.should eq 'NORTH'
-  end
-
   describe ".supported_directions" do
     it "returns an array of supported directions" do
       Robot.supported_directions.should include('NORTH', 'EAST', 'SOUTH', 'WEST')
@@ -142,7 +138,7 @@ describe 'robots' do
         robot.move
         robot.x.should be_nil
         robot.y.should be_nil
-        robot.direction.should eq "NORTH"
+        robot.direction.should be_nil
       end
     end
   end
@@ -171,6 +167,13 @@ describe 'robots' do
       robot.left
       robot.direction.should eq "NORTH"
     end
+
+    context "off the table" do
+      it "ignores the operation" do
+        robot.left
+        robot.direction.should be_nil
+      end
+    end
   end
 
   describe "#right" do
@@ -197,6 +200,13 @@ describe 'robots' do
       robot.right
       robot.direction.should eq "NORTH"
     end
+
+    context "off the table" do
+      it "ignores the operation" do
+        robot.right
+        robot.direction.should be_nil
+      end
+    end
   end
 
   describe "#report" do
@@ -204,6 +214,13 @@ describe 'robots' do
       robot.place(0,0,'NORTH')
       robot.should_receive(:puts).with("0,0,NORTH")
       robot.report
+    end
+
+    context "off the table" do
+      it "ignores the operation" do
+        robot.should_not_receive(:puts).with(anything)
+        robot.report
+      end
     end
   end
 
