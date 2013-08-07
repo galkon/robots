@@ -8,7 +8,7 @@ This application is a simulation of a toy robot moving on a square tabletop, of 
 ```
 bundle install
 ```
-### Run the application with the test files:
+### Running the application with the provided test files:
 ```
 ruby robots.rb robot_files/robots1.txt
 ```
