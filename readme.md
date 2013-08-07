@@ -26,7 +26,7 @@ ruby robots.rb robot_files/patchy_robots_file.txt
 ```
 ## Testing
 
-This application has been tested using Rspec, you can run all the tests with the following command:
+This application has been tested using rspec, you can run all the tests with the following command:
 
 ```
 bundle exec rspec spec
