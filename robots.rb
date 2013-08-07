@@ -1,4 +1,4 @@
-require './lib/robots'
+require './lib/robot'
 require './lib/parser'
 
 robot = Robot.new

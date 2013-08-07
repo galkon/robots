@@ -23,7 +23,7 @@ describe Parser do
     it "handles empty lines" do
       parser = Parser.new("robot_files/patchy_robots_file.txt")
       parser.parse_actions
-      parser.parsed_actions.should eq [{action: "PLACE", x: 0, y: 0, position: "NORTH"}, {action: "MOVE"}, {action: "MOVE"}]
+      parser.parsed_actions.should eq [{action: "PLACE", x: 0, y: 0, position: "NORTH"}, {action: "MOVE"}, {action: "MOVE"}, {action: "REPORT"}]
     end
 
     it "handles all of the DSL language" do
