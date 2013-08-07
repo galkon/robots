@@ -1,4 +1,4 @@
-require_relative '../robots'
+require './lib/robots'
 
 describe 'robots' do
 

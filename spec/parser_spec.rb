@@ -1,4 +1,4 @@
-require_relative '../parser'
+require './lib/parser'
 
 describe Parser do
 
