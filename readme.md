@@ -1,9 +1,33 @@
 # Toy Robot Simulator
 
-Robot simulator comes with a set of files to run with the robot simulator.
+This application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units.
 
-To run the simulator you will need to run the following command:
+## Running the simulator
+
+### Bundle the application
+```
+bundle install
+```
+### Run the application with the test files:
+```
+ruby robots.rb robot_files/robots1.txt
+```
+```
+ruby robots.rb robot_files/robots2.txt
+```
+```
+ruby robots.rb robot_files/robots3.txt
+```
+```
+ruby robots.rb robot_files/all_actions_robots.txt
+```
+```
+ruby robots.rb robot_files/patchy_robots_file.txt
+```
+## Testing
+
+This application has been tested using Rspec, you can run all the tests with the following command:
 
 ```
-ruby robots.rb <robot_file>
+bundle exec rspec spec
 ```
